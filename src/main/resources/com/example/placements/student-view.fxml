@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:controller="com.example.placements.StudentController"
+            xmlns:fx="http://javafx.com/fxml"
+            prefHeight="550" prefWidth="780"
+            style="-fx-background-color: #f4f6f8;">
+    <top>
+        <VBox spacing="12" style="-fx-padding: 20; -fx-background-color: white; -fx-border-color: #ddd; -fx-border-width: 0 0 1 0;">
+            <Label text="Student Management" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <GridPane hgap="12" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="33"/>
+                    <ColumnConstraints percentWidth="33"/>
+                    <ColumnConstraints percentWidth="34"/>
+                </columnConstraints>
+                <TextField fx:id="idField" promptText="Student ID" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="nameField" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <TextField fx:id="emailField" promptText="Email" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <TextField fx:id="phoneField" promptText="Phone" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="cgpaField" promptText="CGPA" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <TextField fx:id="branchField" promptText="Branch" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <TextField fx:id="gradYearField" promptText="Grad Year" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            </GridPane>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Add" onAction="#handleAdd" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Update" onAction="#handleUpdate" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Delete" onAction="#handleDelete" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Refresh" onAction="#handleRefresh"/>
+                <Label fx:id="statusLabel" style="-fx-text-fill: #555;"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="table" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                <TableColumn fx:id="colName" text="Name" prefWidth="130"/>
+                <TableColumn fx:id="colEmail" text="Email" prefWidth="170"/>
+                <TableColumn fx:id="colPhone" text="Phone" prefWidth="110"/>
+                <TableColumn fx:id="colCgpa" text="CGPA" prefWidth="70"/>
+                <TableColumn fx:id="colBranch" text="Branch" prefWidth="90"/>
+                <TableColumn fx:id="colGradYear" text="Grad Year" prefWidth="90"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
